@@ -19,7 +19,7 @@ from django.urls import path, include
 from moodMatch import views
 
 urlpatterns = [
-    path('', views.home, name='home'),    # added
+    #path('', views.home, name='home'),    # added
     path('admin/', admin.site.urls),
-    path('moodMatch/', include('moodMatch.urls')),   # added
+    path('', include('moodMatch.urls')),   # added
 ]

@@ -5,8 +5,6 @@ from . import views
 app_name = 'moodMatch'
 urlpatterns = [
     path('', views.index, name='index'),
-    path('login', views.login, name='login'),
-    path('signup', views.signup, name='signup'),
     path('choose_emotion', views.choose_emotion, name='choose_emotion'),
     path('recommendation_results', views.recommendation_results, name='recommendation_results'),
     path('choose_content', views.choose_content, name='choose_content'),

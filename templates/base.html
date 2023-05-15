@@ -24,7 +24,13 @@
                 display: inline-block;
                 vertical-align: middle;
             }
+            body {
+              background-image: url("{% static 'img/bg.jpg' %}");
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
         </style>
+
     </head>
     <body>    
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -63,7 +69,7 @@
             </div>
         </nav>
         {% load static %}
-        <div class="bg-image" style="background-image: url('static/img/bg.jpg')"></div>
+        <div class="bg-image" style='background-image: {% static 'img/bg.jpg' %}'></div>
         <div class="container">
             {% block content %}
             {% endblock %}

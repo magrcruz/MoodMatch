@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'moodMatch.apps.MoodmatchConfig',
-    'accounts'
+    'accounts',
+    'fontawesomefree'
 ]
 
 MIDDLEWARE = [

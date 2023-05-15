@@ -4,10 +4,34 @@
 
 {% block content %}
 <!-- templates/registration/login.html -->
-<h2>Log In</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Log In</button>
-</form>
+
+<div class="row">
+    <div class="col-8">
+        <!-- aqui se inserta la imagen del logo -->
+        <h1>Mood Match</i></h1>
+    </div>
+    <div class="col-4">
+        <h2>Iniciar Sesión</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}"><i class="fa-solid fa-user"></i></label>
+                {{ form.username }}
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="{{ form.password.id_for_label }}"><i class="fa-solid fa-lock"></i></label>
+                {{ form.password }}
+            </div>
+            <div class="text-center mt-3">
+                <button class="btn btn-dark" type="submit">Iniciar</button>
+            </div>
+           
+        </form>
+    </div>
+</div>
+
+
+
+
 {% endblock %}

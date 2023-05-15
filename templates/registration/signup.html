@@ -3,10 +3,56 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-  </form>
+  
+
+<div class="row">
+  <div class="col-8 align-self-center">
+      {% load static %}
+      <div class="text-center mt-5">
+          <img src="{% static 'img/logo.png' %}" alt="" width="300" height="300" class="d-inline-block align-text-top">
+        </div>
+        
+      <br>
+      <h1 class="text-center">Mood Match</i></h1>
+      <h3 class="text-center" >Sintoniza tus emociones</h3>
+  </div>
+  <div class="col-4 mt-5 align-self-center custom-background" >
+      <h1 class="text-center">Regístrate</h1>
+      <form method="post" class="text-center mt-5">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="{{ form.first_name.id_for_label }}"><i class="fa-solid fa-user"></i></label>
+          {{ form.first_name }}
+      </div>
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}"><i class="fa-solid fa-user"></i></label>
+            {{ form.username }}
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="{{ form.email.id_for_label }}"><i class="fa-solid fa-envelope"></i></label>
+            {{ form.email }}
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="{{ form.password1.id_for_label }}"><i class="fa-solid fa-lock"></i></label>
+            {{ form.password1 }}
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="{{ form.password2.id_for_label }}"><i class="fa-solid fa-lock"></i></label>
+            {{ form.password2 }}
+        </div>
+        <br>
+        <div class="text-center mt-3">
+          ¿Ya tienes cuenta? <a href="/accounts/login/">Inicia Sesión</a>
+      </div>
+        <br>
+        <div class="text-center mt-3">
+            <button class="btn btn-dark" type="submit">Registrarse</button>
+        </div>
+      </form>
+  </div>
+</div>
+
 {% endblock %}

@@ -19,7 +19,9 @@ from django.urls import path, include
 from moodMatch import views
 
 urlpatterns = [
-    #path('', views.home, name='home'),    # added
+    path('', include('moodMatch.urls')),
+
     path('admin/', admin.site.urls),
-    path('', include('moodMatch.urls')),   # added
+    path("accounts/", include("accounts.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
 ]

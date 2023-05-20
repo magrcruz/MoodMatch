@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
-    return render(request, 'moodMatch/example.html')
+    return render(request, 'moodMatch/index.html')
 
 @login_required
 def logout(request):

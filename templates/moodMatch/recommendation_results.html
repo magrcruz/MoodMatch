@@ -1,14 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Random Recommendations</title>
-</head>
-<body>
-    <h1>Random Recommendations</h1>
-    <ul>
-        {% for recommendation in recommendations_results %}
-        <li>{{ recommendation.title }} {{ recommendation.author }}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}¿Que deseas reproducir?{% endblock %}
+
+{% block content %}
+<div class="container choose-container">
+    <div class="abs-center choose-center">
+      <h1 class="title-bg">Mood Match</h1>
+      Sintoniza tus emociones
+      <br>
+      <br>
+      <div class="custom-background-sel">
+        {% load static %}
+        <h3>Estas canciones podrían gustarte</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Artista</th>
+              <th scope="col">Plataforma</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for recommendation in recommendations_results %}
+            <tr>
+              <th scope="row">{{ recommendation.number }}</th>
+              <td>{{ recommendation.title }}</td>
+              <td>{{ recommendation.author }}</td>
+              <td>{{ recommendation.link }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+  {% endblock %}

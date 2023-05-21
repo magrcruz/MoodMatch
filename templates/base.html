@@ -126,7 +126,7 @@
     <body>    
         <nav class="navbar navbar-light navbar-expand-lg bg-body-tertiary " style="background-color: #FFF;">
             <div class="container-fluid row">
-                <a class="navbar-brand col-8" href="#">
+                <a class="navbar-brand col-8" href="{% url 'moodMatch:index' %}">
                     {% load static %}
                     <img src="{% static 'img/logo.png' %}" alt="" width="30" height="30" class="d-inline-block align-text-top">
                     Mood Match
@@ -137,7 +137,7 @@
                 <div class="collapse navbar-collapse col-4" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto ">
                         <li class="nav-item ms-auto">
-                            <a class="nav-link active me-4" href="#">Más Información</a>
+                            <a class="nav-link active me-4" href="{% url 'moodMatch:show_info' %}">Más Información</a>
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">

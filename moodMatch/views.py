@@ -17,7 +17,7 @@ def logout(request):
 @login_required
 def choose_emotion(request, type):
     if request.method == 'POST':
-        emotion = request.POST.get('emotion')
+        emotion = request.POST.get('type')
         # Realiza acciones con el valor recibido
         return redirect(reverse("moodMatch:recommendation_results", args=[type,emotion]))
     return render(request, 'moodMatch/choose_emotion.html')

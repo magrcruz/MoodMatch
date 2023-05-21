@@ -1,0 +1,10 @@
+<form method="POST">
+    {% csrf_token %}
+    <label for="emotion">Selecciona un valor:</label>
+    <select name="emotion" id="emotion">
+      <option value="happy">happy</option>
+      <option value="sad">sad</option>
+    </select>
+    <button type="submit">Enviar</button>
+  </form>
+  

@@ -12,11 +12,15 @@ def logout(request):
     return HttpResponse("logout")
 
 @login_required
-def choose_emotion(requet):
-    return HttpResponse("Como te sientes hoy? Elige una emocion xd")
+def choose_emotion(request, type):
+    if request.method == 'POST':
+        emotion = request.POST.get('emotion')
+        # Realiza acciones con el valor recibido
+        return redirect(reverse("moodMatch:recommendation_results", args=[type,emotion]))
+    return render(request, 'moodMatch/choose_emotion.html')
 
 @login_required
-def recommendation_results(request, type):
+def recommendation_results(request, type, emotion):
     return HttpResponse("Resultados de recomendaciones")
 
 @login_required
@@ -24,7 +28,7 @@ def choose_content(request):
     if request.method == 'POST':
         type = request.POST.get('type')
         # Realiza acciones con el valor recibido
-        return redirect(reverse("moodMatch:recommendation_results", args=[type]))
+        return redirect(reverse("moodMatch:choose_emotion", args=[type]))
     return render(request, 'moodMatch/choose_content.html')
 
 @login_required

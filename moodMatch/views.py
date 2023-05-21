@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse   # added
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 # Create your views here.
 def index(request):
@@ -15,12 +16,16 @@ def choose_emotion(requet):
     return HttpResponse("Como te sientes hoy? Elige una emocion xd")
 
 @login_required
-def recommendation_results(request):
+def recommendation_results(request, type):
     return HttpResponse("Resultados de recomendaciones")
 
 @login_required
 def choose_content(request):
-    return HttpResponse("Elija entre muscia peli o serie")
+    if request.method == 'POST':
+        type = request.POST.get('type')
+        # Realiza acciones con el valor recibido
+        return redirect(reverse("moodMatch:recommendation_results", args=[type]))
+    return render(request, 'moodMatch/choose_content.html')
 
 @login_required
 def genre_preferences(request):

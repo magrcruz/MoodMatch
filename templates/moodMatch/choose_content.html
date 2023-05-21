@@ -1,0 +1,12 @@
+<form method="POST">
+    {% csrf_token %}
+
+    <label for="type">Selecciona un valor:</label>
+    <select name="type" id="type">
+      <option value="song">Song</option>
+      <option value="film">Film</option>
+      <option value="episode">Episode</option>
+    </select>
+    <button type="submit">Enviar</button>
+  </form>
+  

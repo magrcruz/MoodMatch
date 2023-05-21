@@ -13,3 +13,25 @@ class Genre(models.Model):
     def __str__(self):
         return self.type+ ":"+ self.name
 
+class Emotion(models.Model):
+    name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name
+
+class Content(models.Model):
+    title = models.CharField(max_length=100)
+    genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
+    author = models.CharField(max_length=100)
+    link = models.URLField()
+    emotions = models.ManyToManyField(Emotion) #provisional, probablemente solo se prediga
+    
+    TYPE_CHOICES = [
+        ('movie', 'Movie'),
+        ('song', 'Song'),
+        ('serie','Serie')
+    ]
+    type = models.CharField(max_length=10, choices=TYPE_CHOICES)
+
+    def __str__(self):
+        return self.title

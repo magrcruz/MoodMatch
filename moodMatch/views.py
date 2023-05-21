@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from .modelInterface import generate_recommendation
 
+numRecommendations = 5
 # Create your views here.
 def index(request):
     return render(request, 'moodMatch/index.html')
@@ -21,7 +23,14 @@ def choose_emotion(request, type):
 
 @login_required
 def recommendation_results(request, type, emotion):
-    return HttpResponse("Resultados de recomendaciones")
+    recomendation = generate_recommendation(numRecommendations, type, emotion)
+    
+    context = {
+        'recommendations_results': recomendation
+    }
+    
+    return render(request, 'moodMatch/recommendation_results.html', context)
+
 
 @login_required
 def choose_content(request):

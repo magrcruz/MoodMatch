@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Recommendations</title>
+</head>
+<body>
+    <h1>Random Recommendations</h1>
+    <ul>
+        {% for recommendation in recommendations_results %}
+        <li>{{ recommendation.title }} {{ recommendation.author }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

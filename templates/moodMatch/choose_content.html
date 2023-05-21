@@ -17,7 +17,7 @@
         {% csrf_token %}
         <div class="select-img">
           <label for="song" class="radio-label">
-            <input type="radio" id="song" name="type" value="song" style="display: none;">
+            <input type="radio" id="song" name="type" value="song" style="display: none;" required>
             <img src="{% static 'img/music.jpg' %}" alt="Song">
             Canciones
           </label>
@@ -32,6 +32,11 @@
             <input type="radio" id="series" name="type" value="series" style="display: none;">
             <img src="{% static 'img/series.jpg' %}" alt="Series">
             Series
+          </label>
+          
+          <label for="none" class="radio-label">
+            <input type="radio" id="none" name="type" value="" style="display: none;">
+            <span class="fa fa-times"></span> Deseleccionar
           </label>
         </div>
         <br>

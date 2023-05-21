@@ -1,10 +1,57 @@
-<form method="POST">
-    {% csrf_token %}
-    <label for="emotion">Selecciona un valor:</label>
-    <select name="emotion" id="emotion">
-      <option value="happy">happy</option>
-      <option value="sad">sad</option>
-    </select>
-    <button type="submit">Enviar</button>
-  </form>
-  
+ 
+  {% extends "base.html" %}
+
+{% block title %}¿Que deseas reproducir?{% endblock %}
+
+{% block content %}
+<div class="container choose-container">
+  <div class="abs-center choose-center">
+    <h1 class="title-bg">Mood Match</h1>
+    Sintoniza tus emociones
+    <br>
+    <br>
+    <div class="custom-background-sel">
+      {% load static %}
+      <h3>¿Cómo te sientes ahora?</h3>
+      <br>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="select-img">
+          <label for="emotion-happy" class="radio-label">
+            <input type="radio" id="emotion-happy" name="type" value="happy" style="display: none;" required>
+            <img src="{% static 'img/feliz.png' %}" alt="Happy">
+            Feliz
+          </label>
+          
+          <label for="emotion-sad" class="radio-label">
+            <input type="radio" id="emotion-sad" name="type" value="sad" style="display: none;">
+            <img src="{% static 'img/triste.png' %}" alt="Sad">
+            Triste
+          </label>
+          
+          <label for="emotion-angry" class="radio-label">
+            <input type="radio" id="emotion-angry" name="type" value="angry" style="display: none;">
+            <img src="{% static 'img/enojado.png' %}" alt="Anger">
+            Enojad@
+          </label>
+          <label for="emotion-fear" class="radio-label">
+            <input type="radio" id="emotion-fear" name="type" value="fear" style="display: none;">
+            <img src="{% static 'img/asustado.png' %}" alt="Fear">
+            Asustad@
+          </label>
+          <label for="emotion-none" class="radio-label">
+            <input type="radio" id="emotion-none" name="type" value="" style="display: none;">
+            <span class="fa fa-times"></span> Deseleccionar
+          </label>
+        </div>
+        <br>
+        <button class="btn btn-dark" type="submit">Siguiente</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+  {% endblock %}

@@ -35,9 +35,8 @@
               background-image: url("{% static 'img/bg.jpg' %}");
               background-repeat: no-repeat;
               background-size: cover;
-              overflow: hidden;
-}
             }
+
             .custom-background {
                 background-color: rgba(255, 255, 255, 0.5);
                 border-radius: 25px;
@@ -48,7 +47,6 @@
                 border-radius: 25px;
                 padding: 30px;
                 width: 1080px;
-                overflow: hidden;
             }
             body {
               background-image: url("{% static 'img/bg.jpg' %}");
@@ -67,17 +65,19 @@
             min-height: 100vh;
             }
             .select-img {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 10px;
-            justify-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Asegura que los elementos se envuelvan cuando no hay suficiente espacio */
             }
 
             .select-img label {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin: 10px;
             cursor: pointer;
+            flex-basis: 15%; /* Establece el ancho base para cada emoción (puedes ajustar este valor según tus necesidades) */
             }
 
             .select-img label img {
@@ -120,16 +120,6 @@
             opacity: 0.3; /* Opacidad del fondo */
             z-index: -1;
             }
-
-
-
-
-
-
-
-
-  
-
         </style>
 
     </head>
@@ -151,7 +141,7 @@
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="btn btn-dark me-2" type="button" href="/ " >Salir</a>
+                            <a class="btn btn-dark me-2" type="button" href="{% url 'logout' %}" >Salir</a>
                         </li>
                         {% else %}
                         {% if request.path != '/accounts/login/' %}

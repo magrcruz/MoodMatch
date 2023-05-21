@@ -1,12 +1,46 @@
-<form method="POST">
-    {% csrf_token %}
+{% extends "base.html" %}
 
-    <label for="type">Selecciona un valor:</label>
-    <select name="type" id="type">
-      <option value="song">Song</option>
-      <option value="film">Film</option>
-      <option value="episode">Episode</option>
-    </select>
-    <button type="submit">Enviar</button>
-  </form>
-  
+{% block title %}¿Que deseas reproducir?{% endblock %}
+
+{% block content %}
+<div class="container choose-container">
+  <div class="abs-center choose-center">
+    <h1 class="title-bg">Mood Match</h1>
+    Sintoniza tus emociones
+    <br>
+    <br>
+    <div class="custom-background-sel">
+      {% load static %}
+      <h3>¿Qué deseas reproducir?</h3>
+      <br>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="select-img">
+          <label for="song" class="radio-label">
+            <input type="radio" id="song" name="type" value="song" style="display: none;">
+            <img src="{% static 'img/music.jpg' %}" alt="Song">
+            Canciones
+          </label>
+          
+          <label for="film" class="radio-label">
+            <input type="radio" id="film" name="type" value="film" style="display: none;">
+            <img src="{% static 'img/movies.jpg' %}" alt="Film">
+            Películas
+          </label>
+          
+          <label for="series" class="radio-label">
+            <input type="radio" id="series" name="type" value="series" style="display: none;">
+            <img src="{% static 'img/series.jpg' %}" alt="Series">
+            Series
+          </label>
+        </div>
+        <br>
+        <button class="btn btn-dark" type="submit">Siguiente</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+  {% endblock %}

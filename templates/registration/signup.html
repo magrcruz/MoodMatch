@@ -20,27 +20,27 @@
       <h1 class="text-center">Regístrate</h1>
       <form method="post" class="text-center mt-5">
         {% csrf_token %}
-        <div class="form-group">
-          <label for="{{ form.first_name.id_for_label }}"><i class="fa-solid fa-user"></i></label>
+        <div class="input-group">
+          <label class="input-group-text" for="{{ form.first_name.id_for_label }}"><i class="fa-solid fa-user"></i></label>
           {{ form.first_name }}
-      </div>
-        <div class="form-group">
-            <label for="{{ form.username.id_for_label }}"><i class="fa-solid fa-user"></i></label>
+        </div>
+        <div class="input-group">
+            <label class="input-group-text" for="{{ form.username.id_for_label }}"><i class="fa-solid fa-user"></i></label>
             {{ form.username }}
         </div>
         <br>
-        <div class="form-group">
-            <label for="{{ form.email.id_for_label }}"><i class="fa-solid fa-envelope"></i></label>
+        <div class="input-group">
+            <label class="input-group-text" for="{{ form.email.id_for_label }}"><i class="fa-solid fa-envelope"></i></label>
             {{ form.email }}
         </div>
         <br>
-        <div class="form-group">
-            <label for="{{ form.password1.id_for_label }}"><i class="fa-solid fa-lock"></i></label>
+        <div class="input-group">
+            <label class="input-group-text" for="{{ form.password1.id_for_label }}"><i class="fa-solid fa-lock"></i></label>
             {{ form.password1 }}
         </div>
         <br>
-        <div class="form-group">
-            <label for="{{ form.password2.id_for_label }}"><i class="fa-solid fa-lock"></i></label>
+        <div class="input-group">
+            <label class="input-group-text" for="{{ form.password2.id_for_label }}"><i class="fa-solid fa-lock"></i></label>
             {{ form.password2 }}
         </div>
         <br>

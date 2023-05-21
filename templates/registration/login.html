@@ -20,13 +20,13 @@
         <h1 class="text-center">Iniciar Sesión</h1>
         <form method="post" class="text-center mt-5" >
             {% csrf_token %}
-            <div class="form-group">
-                <label for="{{ form.username.id_for_label }}"><i class="fa-solid fa-user"></i></label>
+            <div class="input-group">
+                <span class="input-group-text" for="{{ form.username.id_for_label }}"><i class="fa-solid fa-user"></i></span>
                 {{ form.username }}
             </div>
             <br>
-            <div class="form-group">
-                <label for="{{ form.password.id_for_label }}"><i class="fa-solid fa-lock"></i></label>
+            <div class="input-group">
+                <span class="input-group-text" for="{{ form.password.id_for_label }}"><i class="fa-solid fa-lock"></i></span>
                 {{ form.password }}
             </div>
             <div class="text-center mt-3">

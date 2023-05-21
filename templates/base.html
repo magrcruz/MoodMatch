@@ -151,7 +151,7 @@
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="btn btn-dark me-2" type="button" href="/ " >Salir</a>
+                            <a class="btn btn-dark me-2" type="button" href="{% url 'logout' %}" >Salir</a>
                         </li>
                         {% else %}
                         {% if request.path != '/accounts/login/' %}

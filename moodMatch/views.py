@@ -101,4 +101,4 @@ def genre_preferences(request):
     return render(request, 'moodMatch/genre_preferences.html', {'song_genres': song_genres, 'film_genres': film_genres})
 
 def show_info(request):
-    return HttpResponse("Info que debes conocer")
+    return  render(request, 'moodMatch/show_info.html')

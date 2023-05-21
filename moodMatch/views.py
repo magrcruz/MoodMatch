@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from .modelInterface import generate_recommendation
+from .models import *
 
 numRecommendations = 5
 # Create your views here.
@@ -42,7 +43,17 @@ def choose_content(request):
 
 @login_required
 def genre_preferences(request):
-    return HttpResponse("Elija genero")
+    if request.method == 'POST':
+        selected_song_genres = request.POST.getlist('song_genres') 
+        selected_film_genres = request.POST.getlist('film_genres')
+        # Guardar preferencias
+
+        return HttpResponse(selected_song_genres + selected_film_genres)
+    
+    song_genres = Genre.objects.filter(type='song')
+    film_genres = Genre.objects.filter(type='film')
+    
+    return render(request, 'moodMatch/genre_preferences.html', {'song_genres': song_genres, 'film_genres': film_genres})
 
 def show_info(request):
     return HttpResponse("Info que debes conocer")

@@ -1,16 +1,14 @@
-from .modelsRecomendation import Content
+from .modelsRecomendation import Content, Emotion
 import random
 
 def generate_recommendation(num_words, type, emotion):
-    words = ["apple", "banana", "orange", "grape", "pear", "melon", "pineapple"]
-    random_words = random.choices(words, k=num_words)
-    random_recommendations = []
-    for i in random_words:
-        content = Content(
-            title=i,
-            author='Random Author',
-            link='https://example.com',
-            type=type
-        )
-        random_recommendations.append(content)
-    return random_recommendations
+    
+    emotion = Emotion.objects.get(name=emotion)
+
+    # Consulta la base de datos para obtener las instancias que cumplan con las características
+    recommendations = Content.objects.filter(
+        type=type,
+        emotions__id=emotion.id,
+    )
+
+    return list(recommendations)[:num_words]

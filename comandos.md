@@ -9,3 +9,4 @@ py manage.py migrate --run-syncdb
 py manage.py loaddata .\moodMatch\starterdb.yaml
 py manage.py createsuperuser
 py manage.py runserver
+git archive --format=zip --output=moodMatch.zip HEAD

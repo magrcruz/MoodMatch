@@ -18,30 +18,65 @@
   </div>
   <div class="col-4 mt-5 align-self-center custom-background" >
       <h1 class="text-center">Regístrate</h1>
-      <form method="post" class="text-center mt-5">
+      <form method="POST" class="text-center mt-5">
         {% csrf_token %}
         <div class="input-group">
           <label class="input-group-text" for="{{ form.first_name.id_for_label }}"><i class="fa-solid fa-user"></i></label>
           {{ form.first_name }}
+          {% if form.first_name.errors %}
+              <ul class="errors">
+                {% for error in form.first_name.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
         </div>
         <div class="input-group">
             <label class="input-group-text" for="{{ form.username.id_for_label }}"><i class="fa-solid fa-user"></i></label>
             {{ form.username }}
+            {% if form.username.errors %}
+              <ul class="errors">
+                {% for error in form.username.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
         </div>
         <br>
         <div class="input-group">
             <label class="input-group-text" for="{{ form.email.id_for_label }}"><i class="fa-solid fa-envelope"></i></label>
             {{ form.email }}
+            {% if form.email.errors %}
+              <ul class="errors">
+                {% for error in form.email.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
         </div>
         <br>
         <div class="input-group">
             <label class="input-group-text" for="{{ form.password1.id_for_label }}"><i class="fa-solid fa-lock"></i></label>
             {{ form.password1 }}
+            {% if form.password1.errors %}
+              <ul class="errors">
+                {% for error in form.password1.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
         </div>
         <br>
         <div class="input-group">
             <label class="input-group-text" for="{{ form.password2.id_for_label }}"><i class="fa-solid fa-lock"></i></label>
             {{ form.password2 }}
+            {% if form.password2.errors %}
+              <ul class="errors">
+                {% for error in form.password2.errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
         </div>
         <br>
         <div class="text-center mt-3">
@@ -49,7 +84,7 @@
       </div>
         <br>
         <div class="text-center mt-3">
-            <button class="btn btn-dark" type="submit">Registrarse</button>
+            <button class="btn btn-dark" type="submit" name="submit">Registrarse</button>
         </div>
       </form>
   </div>

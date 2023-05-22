@@ -1,36 +1,43 @@
 {% extends "base.html" %}
 
-{% block title %}¿Que deseas reproducir?{% endblock %}
+{% block title %}¿Qué deseas reproducir?{% endblock %}
 
 {% block content %}
 <div class="container choose-container">
     <div class="abs-center choose-center">
+      {% load static %}
       <h1 class="title-bg">Mood Match</h1>
-      Sintoniza tus emociones
+      <p>Sintoniza tus emociones</p>
       <br>
       <br>
       <div class="custom-background-sel">
         <form method="post">
           {% csrf_token %}     
           <h3>Géneros de canciones</h3>
-          {% for genre in song_genres %}
-            <label>
-              <input type="checkbox" name="song_genres" value="{{ genre.genre.id }}" {% if genre.isSelected %}checked{% endif %}>
-              {{ genre.genre.name }}
-            </label><br>
-          {% endfor %}
+          <div class="options-container">
+            {% for genre in song_genres %}
+              <label class="radio-label">
+                <input type="checkbox" name="song_genres" value="{{ genre.genre.id }}" {% if genre.isSelected %}checked{% endif %}>
+                <img src="{{BASE_DIR}}{{genre.genre.imagen}}" alt="Imagen">
+                {{ genre.genre.name }}
+              </label>
+            {% endfor %}
+          </div>
           
           <h3>Géneros de películas</h3>
-          {% for genre in film_genres %}
-            <label>
-              <input type="checkbox" name="film_genres" value="{{ genre.genre.id }}" {% if genre.isSelected %}checked{% endif %}>
-              {{ genre.genre.name }}
-            </label><br>
-          {% endfor %}        
+          <div class="options-container">
+            {% for genre in film_genres %}
+              <label class="radio-label">
+                <input type="checkbox" name="film_genres" value="{{ genre.genre.id }}" {% if genre.isSelected %}checked{% endif %}>
+                <img src="{{BASE_DIR}}{{genre.genre.imagen}}" alt="Imagen">
+                {{ genre.genre.name }}
+              </label>
+            {% endfor %}
+          </div>
+          
           <button class="btn btn-dark me-2 btn-border-radius-lg border-radius-lg" type="submit">Guardar selección</button>
         </form>
       </div>
     </div>
   </div>
-  
-  {% endblock %}
+{% endblock %}

@@ -2,26 +2,26 @@
   pk: 1
   fields:
     name: K-Pop
-    imagen: static/img/genres/songs-kpop.jpg
+    imagen: static/img/genres/song-kpop.jpg
     type: song
 - model: moodMatch.genre
   pk: 2
   fields:
     name: Rock
-    imagen: static/img/genres/songs-rock.jpg
+    imagen: static/img/genres/song-rock.jpg
     type: song
 - model: moodMatch.genre
   pk: 3
   fields:
     name: Fantasia
     imagen: static/img/genres/film-fantasia.jpg
-    type: song
+    type: film
 - model: moodMatch.genre
   pk: 4
   fields:
     name: Terror
     imagen: static/img/genres/film-terror.jpg
-    type: song
+    type: film
 - model: moodMatch.emotion
   fields:
     id: 1

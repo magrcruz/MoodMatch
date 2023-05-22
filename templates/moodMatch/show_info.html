@@ -1,1 +1,23 @@
-./info.exe
+{% extends "base.html" %}
+
+{% block title %}¿Que deseas reproducir?{% endblock %}
+
+{% block content %}
+<div class="container choose-container">
+    <div class="abs-center choose-center">
+      <h1 class="title-bg">Mood Match</h1>
+      Sintoniza tus emociones
+      <br>
+      <br>
+      <div class="custom-background-sel">
+        {% load static %}
+        <h3>Información que debes conocer</h3>
+        <p>
+            ¿Cansado de buscar películas, canciones o series para ver o escuchar y no saber qué elegir? ¡Tenemos la solución perfecta para ti! Nuestra aplicación de recomendación te ofrece una experiencia única, basada en tus emociones. Ya sea que quieras sentirte feliz, emocionado, relajado o nostálgico, nuestra aplicación te proporcionará las mejores opciones de entretenimiento para satisfacer tus necesidades emocionales. ¡No pierdas más tiempo buscando y deja que nuestras recomendaciones te sorprendan!        
+        </p>
+        <img src="{% static 'img/show-info-choose-emotion.png' %}" alt="" width="720" height="480" class="d-inline-block align-text-top">
+      </div>
+    </div>
+  </div>
+  
+  {% endblock %}

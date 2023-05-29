@@ -1,0 +1,252 @@
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: acoustic
+    type: song
+  model: moodMatch.genre
+  pk: 1
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: alternative
+    type: song
+  model: moodMatch.genre
+  pk: 2
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: ambient
+    type: song
+  model: moodMatch.genre
+  pk: 3
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: anime
+    type: song
+  model: moodMatch.genre
+  pk: 4
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: black-metal
+    type: song
+  model: moodMatch.genre
+  pk: 5
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: blues
+    type: song
+  model: moodMatch.genre
+  pk: 6
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: bossanova
+    type: song
+  model: moodMatch.genre
+  pk: 7
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: children
+    type: song
+  model: moodMatch.genre
+  pk: 8
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: chill
+    type: song
+  model: moodMatch.genre
+  pk: 9
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: classical
+    type: song
+  model: moodMatch.genre
+  pk: 10
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: disco
+    type: song
+  model: moodMatch.genre
+  pk: 11
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: dubstep
+    type: song
+  model: moodMatch.genre
+  pk: 12
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: electro
+    type: song
+  model: moodMatch.genre
+  pk: 13
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: funk
+    type: song
+  model: moodMatch.genre
+  pk: 14
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: hard-rock
+    type: song
+  model: moodMatch.genre
+  pk: 15
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: heavy-metal
+    type: song
+  model: moodMatch.genre
+  pk: 16
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: hip-hop
+    type: song
+  model: moodMatch.genre
+  pk: 17
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: house
+    type: song
+  model: moodMatch.genre
+  pk: 18
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: idm
+    type: song
+  model: moodMatch.genre
+  pk: 19
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: j-pop
+    type: song
+  model: moodMatch.genre
+  pk: 20
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: j-rock
+    type: song
+  model: moodMatch.genre
+  pk: 21
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: jazz
+    type: song
+  model: moodMatch.genre
+  pk: 22
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: k-pop
+    type: song
+  model: moodMatch.genre
+  pk: 23
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: latino
+    type: song
+  model: moodMatch.genre
+  pk: 24
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: metal
+    type: song
+  model: moodMatch.genre
+  pk: 25
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: party
+    type: song
+  model: moodMatch.genre
+  pk: 26
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: piano
+    type: song
+  model: moodMatch.genre
+  pk: 27
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: pop
+    type: song
+  model: moodMatch.genre
+  pk: 28
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: punk
+    type: song
+  model: moodMatch.genre
+  pk: 29
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: reggae
+    type: song
+  model: moodMatch.genre
+  pk: 30
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: reggaeton
+    type: song
+  model: moodMatch.genre
+  pk: 31
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: rock
+    type: song
+  model: moodMatch.genre
+  pk: 32
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: rock-n-roll
+    type: song
+  model: moodMatch.genre
+  pk: 33
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: romance
+    type: song
+  model: moodMatch.genre
+  pk: 34
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: salsa
+    type: song
+  model: moodMatch.genre
+  pk: 35
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: samba
+    type: song
+  model: moodMatch.genre
+  pk: 36
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: sleep
+    type: song
+  model: moodMatch.genre
+  pk: 37
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: soul
+    type: song
+  model: moodMatch.genre
+  pk: 38
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: soundtracks
+    type: song
+  model: moodMatch.genre
+  pk: 39
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: study
+    type: song
+  model: moodMatch.genre
+  pk: 40
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: tango
+    type: song
+  model: moodMatch.genre
+  pk: 41
+- fields:
+    imagen: static/img/genres/song-default.jpg
+    name: techno
+    type: song
+  model: moodMatch.genre
+  pk: 42

@@ -17,7 +17,7 @@
           <div class="options-container">
             {% for genre in song_genres %}
               <label class="radio-label">
-                <input type="checkbox" name="song_genres" value="{{ genre.genre.id }}" {% if genre.isSelected %}checked{% endif %}>
+                <input class="form-check-input" type="checkbox" name="song_genres" value="{{ genre.genre.id }}" {% if genre.isSelected %}checked{% endif %}>
                 <img src="{{BASE_DIR}}{{genre.genre.imagen}}" alt="Imagen">
                 {{ genre.genre.name }}
               </label>
@@ -27,7 +27,7 @@
           <h3>Géneros de películas</h3>
           <div class="options-container">
             {% for genre in film_genres %}
-              <label class="radio-label">
+              <label class="radio-label"> 
                 <input type="checkbox" name="film_genres" value="{{ genre.genre.id }}" {% if genre.isSelected %}checked{% endif %}>
                 <img src="{{BASE_DIR}}{{genre.genre.imagen}}" alt="Imagen">
                 {{ genre.genre.name }}
@@ -40,4 +40,5 @@
       </div>
     </div>
   </div>
+
 {% endblock %}

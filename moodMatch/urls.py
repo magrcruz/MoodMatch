@@ -11,6 +11,5 @@ urlpatterns = [
     path('genre_preferences', views.genre_preferences, name='genre_preferences'),
     path('show_info', views.show_info, name='show_info'),
     path('working', views.working, name='working'),
-  
 ]
     

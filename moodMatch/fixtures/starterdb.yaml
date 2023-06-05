@@ -20,3 +20,5 @@
     id: 1
     name: "Recomendacion de peliculas y series"
     description: "Avisar a los usuarios cuando se tenga la funcionalidad lista"
+    users: []
+

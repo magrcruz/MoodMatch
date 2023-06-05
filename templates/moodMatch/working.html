@@ -11,16 +11,22 @@
       <br>
       <div class="custom-background-sel">
         {% load static %}
-        {% if register == 1 %}
+        {% if register == False %}
         <h3>Nos atrapaste, seguimos trabajando en estas recomendaciones</h3>
         <p>
             ¿Deseas que te avisemos cuando este listo?
         </p>
         <br>
         <br>
+        <form method="post" action="">
+        {% csrf_token %}
+
         <button class="btn btn-dark" type="submit" name="submit">Avisame cuando este listo</button>
+        </form>
         {% else %}
         <h3>Muchas gracias, te avisaremos cuando este listo.</h3>
+        <a class="btn btn-dark me-2 btn-border-radius-lg border-radius-lg" type="button" href="/choose_content">Regresar</a>
+
         {% endif %}
       </div>
     </div>

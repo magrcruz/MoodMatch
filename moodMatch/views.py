@@ -37,9 +37,12 @@ def recommendation_results(request, type, emotion):
 @login_required
 def choose_content(request):
     if request.method == 'POST':
-        type = request.POST.get('type')
+        content_type = request.POST.get('type')
+        if content_type != "song":
+            return redirect(reverse("moodMatch:working"))
+        #elif
         # Realiza acciones con el valor recibido
-        return redirect(reverse("moodMatch:choose_emotion", args=[type]))
+        return redirect(reverse("moodMatch:choose_emotion", args=[content_type]))
     return render(request, 'moodMatch/choose_content.html')
 
 @login_required
@@ -102,7 +105,18 @@ def genre_preferences(request):
     return render(request, 'moodMatch/genre_preferences.html', {'song_genres': song_genres, 'film_genres': film_genres})
 
 def show_info(request):
-    return  render(request, 'moodMatch/show_info.html')
+    return render(request, 'moodMatch/show_info.html')
 
+@login_required
 def working(request):
-    return  render(request, 'moodMatch/working.html')
+    user = request.user
+    subscription = SubscriptionNotification.objects.get(id=1)
+    register = False
+    if request.method == 'POST':
+        register = True
+        if not user in subscription.users.all():
+            subscription.users.add(user)
+    elif user in subscription.users.all():
+            register = True
+
+    return render(request, 'moodMatch/working.html', {'register': register})

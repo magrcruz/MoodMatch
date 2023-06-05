@@ -40,4 +40,7 @@ class UserRecomendations(models.Model):
 class SubscriptionNotification(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    users = models.ManyToManyField(User)
+    users = models.ManyToManyField(User, blank=True)
+
+    def __str__(self):
+        return self.name

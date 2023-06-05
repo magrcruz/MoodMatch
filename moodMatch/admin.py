@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Genre, Content, Emotion, UserRecomendations
+from .models import *
 
 # Register your models here.
 admin.site.register(Genre)
 admin.site.register(Content)
 admin.site.register(Emotion)
 admin.site.register(UserRecomendations)
+admin.site.register(SubscriptionNotification)

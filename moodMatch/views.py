@@ -24,7 +24,7 @@ def choose_emotion(request, type):
 
 @login_required
 def recommendation_results(request, type, emotion):
-    recomendation = generate_recommendation(numRecommendations, type, emotion)
+    recomendation = generate_recommendation(request,numRecommendations, type, emotion)
     
     context = {
         'recommendations_results': recomendation

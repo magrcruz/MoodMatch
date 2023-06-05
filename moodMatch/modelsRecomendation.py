@@ -24,7 +24,7 @@ class Content(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
     author = models.CharField(max_length=100)
     link = models.URLField()
-    emotions = models.ManyToManyField(Emotion) #provisional, probablemente solo se prediga
+    emotion = models.ForeignKey(Emotion, on_delete=models.CASCADE, null=True)
     
     TYPE_CHOICES = [
         ('movie', 'Movie'),

@@ -19,7 +19,7 @@ class UserRecomendations(models.Model):
     lastTimeRecharged = models.DateField(default=timezone.now().date() - timezone.timedelta(days=1))
 
     def has_recommendations(self):
-        return self.recomendationsleft>0
+        return self.recomendationsleft
     
     def can_recharge(self):
         if self.recomendationsleft>0: return False

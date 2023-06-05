@@ -24,9 +24,10 @@ def choose_emotion(request, type):
 
 @login_required
 def recommendation_results(request, type, emotion):
-    recomendation = generate_recommendation(request,numRecommendations, type, emotion)
+    recomendation, left = generate_recommendation(request,numRecommendations, type, emotion)
     
     context = {
+        'count_recommendations':left,
         'recommendations_results': recomendation
     }
     

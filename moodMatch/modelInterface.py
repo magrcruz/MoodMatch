@@ -12,7 +12,7 @@ def generate_recommendation(request,num_words, type, emotion):
         user_recomendations.recharge()
     
     if not user_recomendations.has_recommendations():
-        return []
+        return [],0
 
     emotion = Emotion.objects.get(name=emotion)
 
@@ -33,4 +33,4 @@ def generate_recommendation(request,num_words, type, emotion):
     ).order_by('?')
     if len(list(recommendations)):
         user_recomendations.use_recomendation()
-    return list(recommendations)[:num_words]
+    return list(recommendations)[:num_words],user_recomendations.has_recommendations()

@@ -102,3 +102,6 @@ def genre_preferences(request):
 
 def show_info(request):
     return  render(request, 'moodMatch/show_info.html')
+
+def working(request):
+    return  render(request, 'moodMatch/working.html')

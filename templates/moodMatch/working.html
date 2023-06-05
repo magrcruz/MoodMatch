@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}¿Que deseas reproducir?{% endblock %}
+
+{% block content %}
+<div class="container choose-container">
+    <div class="abs-center choose-center">
+      <h1 class="title-bg">Mood Match</h1>
+      Sintoniza tus emociones
+      <br>
+      <br>
+      <div class="custom-background-sel">
+        {% load static %}
+        {% if register == 1 %}
+        <h3>Nos atrapaste, seguimos trabajando en estas recomendaciones</h3>
+        <p>
+            ¿Deseas que te avisemos cuando este listo?
+        </p>
+        <br>
+        <br>
+        <button class="btn btn-dark" type="submit" name="submit">Avisame cuando este listo</button>
+        {% else %}
+        <h3>Muchas gracias, te avisaremos cuando este listo.</h3>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  
+  {% endblock %}

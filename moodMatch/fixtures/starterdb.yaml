@@ -14,3 +14,11 @@
   fields:
     id: 4
     name: angry
+
+- model: moodMatch.subscriptionNotification
+  fields:
+    id: 1
+    name: "Recomendacion de peliculas y series"
+    description: "Avisar a los usuarios cuando se tenga la funcionalidad lista"
+    users: []
+

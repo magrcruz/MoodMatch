@@ -12,3 +12,4 @@ py manage.py loaddata .\moodMatch\fixtures\songs.yaml
 py manage.py createsuperuser
 py manage.py runserver
 git archive --format=zip --output=moodMatch.zip HEAD
+python manage.py collectstatic

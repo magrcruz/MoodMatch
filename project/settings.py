@@ -25,9 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t*v_#n2e_f#re$#zaptz_c!-v$l8c!(-&$g97gf5yni6c6$^3k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["moodmatch.pythonanywhere.com"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "moodmatch.pythonanywhere.com"
+]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 #LOGIN_URL = '/login/'

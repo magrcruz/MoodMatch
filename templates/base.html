@@ -180,10 +180,16 @@
                             <a class="nav-link active me-4" href="{% url 'moodMatch:show_info' %}">Más Información</a>
                         </li>
                         {% if user.is_authenticated %}
+                        {% if not user.is_premium and request.path != '/accounts/premiun_subscription/' %}
+                        <li class="nav-item">
+                            <a class="btn btn-dark me-2" href="/accounts/premiun_subscription/"> Premium</a>
+                        </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a class="btn btn-dark me-2" type="button" href="{% url 'logout' %}" >Salir</a>
                         </li>
                         {% else %}
+
                         {% if request.path != '/accounts/login/' %}
                         <li class="nav-item">
                             <a class="btn btn-dark me-2 btn-border-radius-lg border-radius-lg" type="button" href="/accounts/login/">Iniciar sesión</a>

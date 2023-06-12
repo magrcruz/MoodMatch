@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<!-- templates/registration/login.html -->
+
+<div class="row">
+    <div class="col-8 align-self-center">
+        {% load static %}
+        <div class="text-center mt-5">
+            <img src="{% static 'img/logo.png' %}" alt="" width="300" height="300" class="d-inline-block align-text-top">
+          </div>
+          
+        <br>
+        <h1 class="text-center">Mood Match</i></h1>
+        <h3 class="text-center" >Sintoniza tus emociones</h3>
+    </div>
+    <div class="col-4 mt-5 align-self-center custom-background" >
+        <h1 class="text-center">Mejora tu cuenta</h1>
+        <form method="post" class="text-center mt-5" >
+            {% csrf_token %}
+            <div class="input-group">
+                <span class="input-group-text" for="{{ form.username.id_for_label }}"><i class="fa-solid fa-user"></i></span>
+                {{ form.username }}
+            </div>
+            <br>
+            <div class="input-group">
+                <span class="input-group-text" for="{{ form.password.id_for_label }}"><i class="fa-solid fa-lock"></i></span>
+                {{ form.password }}
+            </div>
+            <div class="text-center mt-3">
+                ¿Aún no tienes cuenta? <a href="/accounts/signup/">Regístrate</a>
+            </div>
+            <div class="text-center mt-3">
+                <button class="btn btn-dark" type="submit">Iniciar</button>
+            </div>
+           
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

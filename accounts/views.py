@@ -30,3 +30,8 @@ class SignUpView(generic.CreateView):
         print("Ocurrió un error durante la creación del usuario.")
         print("Errores del formulario:", form.errors)
         return super().form_invalid(form)
+    
+class PremiunSubscriptionView(LoginView):
+    form_class = CustomLoginForm
+    template_name = 'registration/premiun_subscription.html' # Especifica el nombre de tu plantilla personalizada de inicio de sesión
+    success_url = '/'  # Especifica la URL a la que se redirigirá después del inicio de sesión exitoso

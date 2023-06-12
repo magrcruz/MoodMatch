@@ -15,10 +15,16 @@
       ¿Deseas otras recomendaciones? Lanza los dados y verás nuevas recomendaciones
       <a href="#" onclick="recargarPagina()" class="btn btn-lg"> <i class="fas fa-dice spotify-icon"></i></a>
       <br>
-      {% if count_recommendations > 0 %}
-      Te quedan {{count_recommendations}} recomendaciones gratis por hoy.
+      {% if myuser.is_premium %}
+        Tienes recomendaciones ilimitadas
       {% else %}
-      ¡Oh rayos! Ya no tienes recomendaciones gratis por hoy, regresa mañana.
+        {% if count_recommendations > 0 %}
+        Te quedan {{count_recommendations}} recomendaciones gratis por hoy.
+        {% else %}
+        ¡Oh rayos! Ya no tienes recomendaciones gratis por hoy, regresa mañana.
+        {% endif %}
+        <br>
+        <a href="/accounts/premiun_subscription/">Prueba premium</a>
       {% endif %}
         <table class="table">
         <thead>

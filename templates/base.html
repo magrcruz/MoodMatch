@@ -58,12 +58,20 @@
                 max-width: 1080px;
                 width: 90%;
             }
-
+            
             /* Media query para pantallas maximizadas */
             @media screen and (min-width: 1080px) {
                 .custom-background-sel {
-                    width: 1080px;
+                    width: 90%;
                 }
+            }
+            .custom-background-slide {
+                max-width: 90%;
+
+            }
+            .my-logo {
+                max-width: 90%;
+                height: auto;
             }
 
             .choose-container {
@@ -178,26 +186,25 @@
                             <a class="nav-link active me-4" href="{% url 'moodMatch:show_info' %}">Más Información</a>
                         </li>
                         {% if user.is_authenticated %}
-                        {% if user.is_premium and request.path != '/accounts/premiun_subscription/' %}
-                        <li class="nav-item">
-                            <a class="btn btn-dark me-2" href="/accounts/premiun_subscription/"> Premium</a>
-                        </li>
-                        {% endif %}
-                        <li class="nav-item">
-                            <a class="btn btn-dark me-2" type="button" href="{% url 'logout' %}" >Salir</a>
-                        </li>
+                            {% if not myuser.is_premium and request.path != '/accounts/premiun_subscription/' %}
+                            <li class="nav-item">
+                                <a class="btn btn-dark me-2" href="/accounts/premiun_subscription/"> Premium</a>
+                            </li>
+                            {% endif %}
+                            <li class="nav-item">
+                                <a class="btn btn-dark me-2" type="button" href="{% url 'logout' %}" >Salir</a>
+                            </li>
                         {% else %}
-
-                        {% if request.path != '/accounts/login/' %}
-                        <li class="nav-item">
-                            <a class="btn btn-dark me-2 btn-border-radius-lg border-radius-lg" type="button" href="/accounts/login/">Iniciar sesión</a>
-                        </li>
-                        {% endif %}
-                        {% if request.path != '/accounts/signup/' %}
-                        <li class="nav-item">
-                            <a class="btn btn-outline-dark me-2 btn-border-radius-lg border-radius-lg" type="button" href="/accounts/signup/">Regístrate</a>
-                        </li>
-                        {% endif %}
+                            {% if request.path != '/accounts/login/' %}
+                            <li class="nav-item">
+                                <a class="btn btn-dark me-2 btn-border-radius-lg border-radius-lg" type="button" href="/accounts/login/">Iniciar sesión</a>
+                            </li>
+                            {% endif %}
+                            {% if request.path != '/accounts/signup/' %}
+                            <li class="nav-item">
+                                <a class="btn btn-outline-dark me-2 btn-border-radius-lg border-radius-lg" type="button" href="/accounts/signup/">Regístrate</a>
+                            </li>
+                            {% endif %}
                         {% endif %}
                     </ul>
                 </div>

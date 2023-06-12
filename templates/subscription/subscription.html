@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Premium{% endblock %}
+
+{% block content %}
+<!-- templates/registration/login.html -->
+
+<div class="row">
+    <div class="col-8 align-self-center">
+        {% load static %}
+        <div class="text-center mt-5">
+            <img src="{% static 'img/logo.png' %}" alt="" width="300" height="300" class="d-inline-block align-text-top">
+          </div>
+          
+        <br>
+        <h1 class="text-center">Mood Match</i></h1>
+        <h3 class="text-center" >Sintoniza tus emociones</h3>
+    </div>
+    <div class="col-4 mt-5 align-self-center custom-background" >
+        <h1 class="text-center">Mejora tu cuenta</h1>
+        <form method="post" class="text-center mt-5" >
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center mt-3">
+                <button class="btn btn-dark" type="submit">Inscribete a premium</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

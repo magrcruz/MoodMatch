@@ -49,7 +49,8 @@ INSTALLED_APPS = [
 
     'moodMatch.apps.MoodmatchConfig',
     'accounts',
-    'fontawesomefree'
+    'payments',
+    'subscription'
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,19 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEFAULT_CHARSET = 'utf-8'
+
+# Payments
+# A dotted path to the Payment class.
+PAYMENT_MODEL = 'subscription.Payment'
+
+# This can be a string or callable, and should return a base host that
+# will be used when receiving callbacks and notifications from payment
+# providers.
+#
+# Keep in mind that if you use `localhost`, external servers won't be
+# able to reach you for webhook notifications.
+PAYMENT_HOST = 'localhost:8000'
+
+# Whether to use TLS (HTTPS). If false, will use plain-text HTTP.
+# Defaults to ``not settings.DEBUG``.
+PAYMENT_USES_SSL = False

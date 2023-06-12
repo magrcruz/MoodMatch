@@ -18,22 +18,30 @@
     </div>
     <div class="col-4 mt-5 align-self-center custom-background" >
         <h1 class="text-center">Mejora tu cuenta</h1>
-        <form method="post" class="text-center mt-5" >
+        <form method="post" class="text-center mt-5" action=
+        {% if status == 'Free' %} ""
+        {% else %}
+        "{% url 'moodMatch:index' %}"
+        {% endif %}
+        >
             {% csrf_token %}
-            <div class="input-group">
-                <span class="input-group-text" for="{{ form.username.id_for_label }}"><i class="fa-solid fa-user"></i></span>
-                {{ form.username }}
-            </div>
-            <br>
-            <div class="input-group">
-                <span class="input-group-text" for="{{ form.password.id_for_label }}"><i class="fa-solid fa-lock"></i></span>
-                {{ form.password }}
-            </div>
             <div class="text-center mt-3">
-                ¿Aún no tienes cuenta? <a href="/accounts/signup/">Regístrate</a>
-            </div>
+                {% if status == 'New' %}
+                Gracias por tu interés en premium. En cuanto esté listo el pago, te notificaremos. Mientras tanto, puedes usar premium cuanto quieras.
+                {% elif status == 'Free' %}
+                    ¿Aún no tienes premium? ¡Regístrate ya y obtén recomendaciones ilimitadas!
+                {% elif status == 'Premium' %}
+                    ¡Felicidades, ya eres premium! Te avisaremos cuando el pago esté listo. ¡Sigue disfrutando de MoodMatch!
+                {% endif %}
+                        </div>
             <div class="text-center mt-3">
-                <button class="btn btn-dark" type="submit">Iniciar</button>
+                <button class="btn btn-dark" type="submit">
+                    {% if status == 'Free' %}
+                    Incripcion a Premium $
+                    {% else %}
+                    Volver a MoodMatch
+                    {% endif %}
+                </button>
             </div>
            
         </form>

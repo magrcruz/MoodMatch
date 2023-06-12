@@ -49,7 +49,6 @@ INSTALLED_APPS = [
 
     'moodMatch.apps.MoodmatchConfig',
     'accounts',
-    'fontawesomefree'
 ]
 
 MIDDLEWARE = [

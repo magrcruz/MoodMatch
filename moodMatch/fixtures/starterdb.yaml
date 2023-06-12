@@ -21,4 +21,9 @@
     name: "Recomendacion de peliculas y series"
     description: "Avisar a los usuarios cuando se tenga la funcionalidad lista"
     users: []
-
+- model: moodMatch.subscriptionNotification
+  fields:
+    id: 2
+    name: "Subscripcion premium"
+    description: "Avisar a los usuarios cuando se soporten pagos para la obtencion de premium"
+    users: []

@@ -6,13 +6,19 @@ from .modelInterface import generate_recommendation
 from .models import *
 
 numRecommendations = 5
+def is_premium(request):
+    user={
+        "is_premium": request.user in SubscriptionNotification.objects.get(id=2).users.all()
+    }
+    return user
+
 # Create your views here.
 def index(request):
     return render(request, 'moodMatch/index.html')
 
 @login_required
 def logout(request):
-    return HttpResponse("logout")
+    return HttpResponse("logout",{"user":is_premium(request)})
 
 @login_required
 def choose_emotion(request, type):
@@ -20,7 +26,7 @@ def choose_emotion(request, type):
         emotion = request.POST.get('type')
         # Realiza acciones con el valor recibido
         return redirect(reverse("moodMatch:recommendation_results", args=[type,emotion]))
-    return render(request, 'moodMatch/choose_emotion.html')
+    return render(request, 'moodMatch/choose_emotion.html',{"user":is_premium(request)})
 
 @login_required
 def recommendation_results(request, type, emotion):
@@ -28,7 +34,8 @@ def recommendation_results(request, type, emotion):
     
     context = {
         'count_recommendations':left,
-        'recommendations_results': recomendation
+        'recommendations_results': recomendation,
+        "user":is_premium(request)
     }
     
     return render(request, 'moodMatch/recommendation_results.html', context)
@@ -43,7 +50,7 @@ def choose_content(request):
         #elif
         # Realiza acciones con el valor recibido
         return redirect(reverse("moodMatch:choose_emotion", args=[content_type]))
-    return render(request, 'moodMatch/choose_content.html')
+    return render(request, 'moodMatch/choose_content.html',{"user":is_premium(request)})
 
 @login_required
 def genre_preferences(request):
@@ -102,7 +109,7 @@ def genre_preferences(request):
         for genre in f_genres
     ]
 
-    return render(request, 'moodMatch/genre_preferences.html', {'song_genres': song_genres, 'film_genres': film_genres})
+    return render(request, 'moodMatch/genre_preferences.html', {'song_genres': song_genres, 'film_genres': film_genres,"user":is_premium(request)})
 
 def show_info(request):
     return render(request, 'moodMatch/show_info.html')
@@ -119,4 +126,4 @@ def working(request):
     elif user in subscription.users.all():
             register = True
 
-    return render(request, 'moodMatch/working.html', {'register': register})
+    return render(request, 'moodMatch/working.html', {'register': register,"user":is_premium(request)})

@@ -6,6 +6,8 @@ from django.contrib.auth.views import LoginView
 from .forms import CustomLoginForm, SignUpForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
+from moodMatch.models import SubscriptionNotification
+from django.contrib.auth.decorators import login_required
 
 class CustomLoginView(LoginView):
     form_class = CustomLoginForm
@@ -31,7 +33,20 @@ class SignUpView(generic.CreateView):
         print("Errores del formulario:", form.errors)
         return super().form_invalid(form)
     
-class PremiunSubscriptionView(LoginView):
-    form_class = CustomLoginForm
-    template_name = 'registration/premiun_subscription.html' # Especifica el nombre de tu plantilla personalizada de inicio de sesión
-    success_url = '/'  # Especifica la URL a la que se redirigirá después del inicio de sesión exitoso
+@login_required
+def PremiunSubscriptionView(request):
+    user = request.user
+    subscription = SubscriptionNotification.objects.get(id=2)
+    register = False
+    status = "Free" # Premium, New
+    if request.method == 'POST':
+        register = True
+        status = "Premium"
+        if not user in subscription.users.all():
+            subscription.users.add(user)
+            status = "New"
+    elif user in subscription.users.all():
+        register = True
+        status = "Premium"
+
+    return render(request, 'registration/premiun_subscription.html', {'register': register,'status':status})
